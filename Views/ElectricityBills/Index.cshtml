@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ElectricityBillGeneration.Models.ElectricityBill>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<p>
+    @Html.ActionLink("Add New Bill", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ConsumerNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ConsumerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UnitsConsumed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BillAmount)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.ConsumerNumber)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ConsumerName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.UnitsConsumed)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.BillAmount)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.ConsumerNumber }) |
+        @Html.ActionLink("Details", "Details", new { id = item.ConsumerNumber }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.ConsumerNumber })
+    </td>
+</tr>
+}
+
+</table>
